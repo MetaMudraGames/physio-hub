@@ -1,0 +1,105 @@
+/* Import Google Fonts - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+/* ============================================
+   PhysioHub Design System
+   ============================================ */
+
+@theme {
+  /* Organ System Colors */
+  --color-renal: #3b82f6;
+  --color-cardiac: #ef4444;
+  --color-respiratory: #8b5cf6;
+  --color-endocrine: #f59e0b;
+  --color-nervous: #10b981;
+  --color-digestive: #eab308;
+
+  /* UI Colors */
+  --color-correct: #10b981;
+  --color-incorrect: #ef4444;
+  --color-disabled: #9ca3af;
+
+  /* Animation Easings */
+  --ease-biological: cubic-bezier(0.45, 0, 0.55, 1);
+  
+  /* Custom Font */
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+/* Base Styles */
+html {
+  font-family: var(--font-body);
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply antialiased;
+}
+
+/* Mobile-first touch targets */
+button, 
+input[type="range"],
+a {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Prevent iOS zoom on input focus */
+input, 
+select, 
+textarea {
+  font-size: 16px;
+}
+
+/* Animation utilities */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes flow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.1);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-flow {
+  animation: flow 3s linear infinite;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
